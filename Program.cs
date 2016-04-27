@@ -21,7 +21,7 @@ namespace Console_SimpleInjector
             Console.WriteLine( nodeDescriber.Describe(new SingleChildNode("Bob", new NoChildrenNode("Ralph"))) );
             Console.ReadLine();
 
-            INodeActivator nodeActivator = container.GetInstance<INodeActivator>();
+            INodeActivator nodeActivator = container.GetInstance<INodeActivator>(); // SimpleInjector supplies INodeDescriber to SimpleNodeActivator
             Console.WriteLine(nodeActivator.Activate(new SingleChildNode("Genghis", new NoChildrenNode("Kubla"))));
             Console.ReadLine();
 
