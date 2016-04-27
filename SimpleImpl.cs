@@ -7,22 +7,34 @@ using SimpleLibrary;
 
 namespace Console_SimpleInjector
 {
-    public class SimpleImpl : INodeDescriber
+    public class SimpleNodeDescriber : INodeDescriber
     {
         public string Describe(Node node)
         {
-            return "SimpleImpl";
+            return "Simply " + node.Name;
         }
 
     }
 
-    public class BozoImpl : INodeDescriber
+    public class BozoNodeDescriber : INodeDescriber
     {
         public string Describe(Node node)
         {
-            return "BozoImpl";
+            return "BozoImpl " + node.Name;
         }
 
     }
 
+    public class SimpleNodeActivator : INodeActivator
+    {
+        private INodeDescriber NodeDescriber;
+        public SimpleNodeActivator(INodeDescriber nodeDescriber)
+        {
+            NodeDescriber = nodeDescriber;
+        }
+        public string Activate(Node node)
+        {
+            return "Activating " + NodeDescriber.Describe(node);
+        }
+    }
 }

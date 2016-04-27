@@ -88,4 +88,9 @@ namespace SimpleLibrary
     {
         string Describe(Node node);
     }
+
+    public interface INodeActivator
+    {
+        string Activate(Node node);
+    }
 }
